@@ -12,11 +12,19 @@ app = Flask(__name__)
 def load_model():
     file_name = "model/BestModel.pkl"
     model = pickle.load(open(file_name, 'rb'))
-    return str(model.fit_predict_score())
+    return model.fit_predict_score()
 
-@app.route('/score')
+
+@app.route('/')
+def hello():
+    return "hello"
+
+
+@app.route('/score', methods=['GET'])
 def score():
-    return load_model()
+    gg = BestModel()
+    ff = gg.fit_predict_score()
+    return ff
 
 
 @app.route('/gago')
