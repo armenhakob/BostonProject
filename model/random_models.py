@@ -102,4 +102,4 @@ class RandomModels:
 if __name__ == '__main__':
     model_1 = RandomModels()
     print(model_1.score())
-    pickle.dump(model_1, open('model.pkl', 'wb'))
+    pickle.dump(model_1, open('../pkl/model.pkl', 'wb'))
