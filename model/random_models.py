@@ -22,7 +22,7 @@ class RandomModels:
         ensemble.RandomForestRegressor()]
 
     def data_normalizer(self):
-        address = 'Boston.txt'
+        address = '../dataset/Boston.txt'
         with open(address) as d_line:
             text = [line for line in d_line.readlines()]
             start_row = 0
@@ -32,12 +32,12 @@ class RandomModels:
                 new_line = l.strip('\n') + text[start_row + i + 1]
                 new_rows.append(new_line)
         new_data = ''.join(new_rows)
-        with open('boston_new.csv', 'w') as f:
+        with open('../dataset/boston_new.csv', 'w') as f:
             f.write(new_data)
 
     def load_the_data(self):
         self.data_normalizer()
-        address = 'boston_new.csv'
+        address = '../dataset/boston_new.csv'
         column_names = ['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX',
                         'RM', 'AGE', 'DIS', 'RAD', 'TAX',
                         'PTRATIO', 'B', 'LSTAT', 'MEDV']
